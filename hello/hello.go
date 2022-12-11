@@ -16,20 +16,11 @@ func main() {
 
     fmt.Println(quote.Go())
 
-    message1, err1 := greetings.Hello("Amid")
+    message, err := greetings.Hello("Amid")
 
-    if err1 != nil {
-        log.Fatal(err1)
+    if err != nil {
+        log.Fatal(err)
     }
 
-    fmt.Println(message1)
-    fmt.Println("===================================")
-
-    message2, err2 := greetings.Hello("")
-
-    if err2 != nil {
-        log.Fatal(err2)
-    }
-
-    fmt.Println(message2)
+    fmt.Println(message)
 }
