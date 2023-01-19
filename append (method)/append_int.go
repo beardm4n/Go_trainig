@@ -5,13 +5,12 @@ import (
 )
 
 func main() {
-	fmt.Println("hyi")
 	list := make([]int, 4, 6)
 
 	list = Append(list, 9)
 	list = Append(list, 8)
 	list = Append(list, 7)
-	
+
 	fmt.Println("list", list, len(list), cap(list))
 }
 
