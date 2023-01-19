@@ -5,19 +5,26 @@ import (
 )
 
 func main() {
-	list := make([]int, 4, 6)
+	list := make([]int, 5, 7)
+	fmt.Println("list", list, "length", len(list), "capacity", cap(list))
 
-	list = Append(list, 9)
-	list = Append(list, 8)
-	list = Append(list, 7)
+	list = Append(list, 1)
+	fmt.Println("list", list, "length", len(list), "capacity", cap(list))
 
-	fmt.Println("list", list, len(list), cap(list))
+	list = Append(list, 2, 3)
+	fmt.Println("list", list, "length", len(list), "capacity", cap(list))
+
+	list = Append(list, 4, 5, 6)
+	fmt.Println("list", list, "length", len(list), "capacity", cap(list))
+
+	list = Append(list, 7, 8, 9, 10)
+	fmt.Println("list", list, "length", len(list), "capacity", cap(list))
 }
 
-func Append(list []int, el int) []int {
+func Append(list []int, elements ...int) []int {
 	var res []int
 
-	resLen := len(list) + 1
+	resLen := len(list) + len(elements)
 
 	if (resLen <= cap(list)) {
 		res = list[:resLen]
@@ -33,7 +40,9 @@ func Append(list []int, el int) []int {
 		copy(res, list)
 	}
 
-	res[len(list)] = el
+	for i, el := range elements {
+		res[len(list) + i] = el
+	}
 
 	return res
 }
